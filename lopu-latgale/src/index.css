@@ -1,13 +1,107 @@
+/* Global Styles */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Cinzel', serif; /* A font that gives a medieval feel */
+  background-color: #f9f7f3;
+  color: #333;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 70vh; /* Ensure the container takes the full height of the viewport */
+}
+
+/* Buttons */
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Cinzel', serif; /* Ensure the font matches the rest of the page */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: block;
+  width: 80%;
+  max-width: 300px; /* Limit button width */
+  text-align: center;
+}
+
+
+button:active {
+  transform: scale(0.95); /* Slightly shrink the button when active */
+  transition: transform 0.1s; /* Shorter transition for the active state */
+}
+
+/* Header */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Navigation Links */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 10px 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: 'Cinzel', serif; /* Ensure the font matches the rest of the page */
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  button {
+    margin: 5px 0;
+    cursor: none;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 601px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  button {
+    width: auto;
+    margin: 10px;
+  }
+
+  nav ul li a {
+    font-size: 1.2rem;
+  }
 }
