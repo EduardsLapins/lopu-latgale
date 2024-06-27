@@ -15,7 +15,7 @@ const FileUpload = ({ task }) => {
         formData.append('file', file);
 
         try {
-            const apiURL = `https://${process.env.REACT_APP_PROJECT_DOMAIN}.glitch.me/upload?team=${cookies.team}&task=${task}`;
+            const apiURL = `https://${process.env.REACT_APP_PROJECT_DOMAIN}/upload?team=${cookies.team}&task=${task}`;
             const response = await axios.post(apiURL, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'

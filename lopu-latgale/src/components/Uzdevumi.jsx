@@ -8,7 +8,7 @@ const Uzdevumi = () => {
     const [cookies] = useCookies(['team']);
 
     useEffect(() => {
-        const apiURL = `https://${process.env.REACT_APP_PROJECT_DOMAIN}.glitch.me/api/tasks?team=${cookies.team}`;
+        const apiURL = `https://${process.env.REACT_APP_PROJECT_DOMAIN}/api/tasks?team=${cookies.team}`;
 
         axios.get(apiURL)
             .then(response => {
