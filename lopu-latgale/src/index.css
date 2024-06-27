@@ -13,7 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  min-height: 70vh; /* Ensure the container takes the full height of the viewport */
+  min-height: 60vh; /* Ensure the container takes the full height of the viewport */
 }
 
 /* Buttons */

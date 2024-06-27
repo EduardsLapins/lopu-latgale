@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import FileUpload from './FileUpload';
+import TaskDetails from './TaskDetails';
 
 const Uzdevumi = () => {
     const [tasks, setTasks] = useState([]);
     const [cookies] = useCookies(['team']);
+    const [selectedTask, setSelectedTask] = useState(null);
 
     useEffect(() => {
-        const apiURL = `https://${process.env.REACT_APP_PROJECT_DOMAIN}/api/tasks?team=${cookies.team}`;
+        const apiURL = `http://${process.env.REACT_APP_PROJECT_DOMAIN}/api/tasks?team=${cookies.team}`;
 
         axios.get(apiURL)
             .then(response => {
@@ -26,6 +28,7 @@ const Uzdevumi = () => {
             });
     }, [cookies.team]);
 
+
     return (
         <div>
             <h1>Uzdevumi</h1>
@@ -34,9 +37,11 @@ const Uzdevumi = () => {
                     <li key={task.id}>
                         {task.name} - {task.locked ? 'Locked' : 'Unlocked'}
                         {task.locked ? null : <FileUpload task={task.name} />}
+                        {task.locked ? null : <button onClick={() => setSelectedTask(task.name)}>View Details</button>}
                     </li>
                 ))}
             </ul>
+            {selectedTask && <TaskDetails task={selectedTask} />}
         </div>
     );
 };
